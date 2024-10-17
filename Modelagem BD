@@ -1,0 +1,62 @@
+1. Usuario:
+
+Atributos: id, nome, email, senha, data_nascimento, saldo_wallet.
+
+Relacionamento: Pode criar ou participar de Eventos.
+
+
+
+2. Evento:
+
+Atributos: id, titulo, descricao, valor_cota, data_inicio_aposta, data_fim_aposta, data_evento, status (aprovado, reprovado, pendente), resultado (ocorreu, não ocorreu).
+
+Relacionamento: É criado por um Usuario e pode ter Apostas associadas.
+
+
+
+3. Aposta:
+
+Atributos: id, valor, resultado_aposta (sim, não), data_aposta.
+
+Relacionamento: É feita por um Usuario em um Evento.
+
+
+
+4. Moderador (Usuario com um papel especial):
+
+Atributos: id, nome, email, senha (igual à entidade Usuario, mas com permissões de moderação).
+
+Relacionamento: Pode aprovar ou reprovar Eventos.
+
+
+
+5. Wallet (Carteira Virtual):
+
+Atributos: id, saldo, usuario_id.
+
+Relacionamento: Está associada a um Usuario e registra transações.
+
+
+
+6. Transacao:
+
+Atributos: id, tipo (compra de créditos, saque, aposta), valor, data_transacao, evento_id (caso relacionado a apostas).
+
+Relacionamento: Está associada à Wallet de um Usuario.
+
+
+
+
+Relacionamentos:
+
+Usuario cria Evento: Um Usuario pode criar vários Eventos.
+
+Usuario faz Aposta: Um Usuario pode realizar várias Apostas em Eventos diferentes.
+
+Moderador aprova/reprova Evento: Um Moderador pode aprovar ou reprovar vários Eventos.
+
+Aposta está associada a um Evento: Cada Aposta refere-se a um Evento.
+
+Usuario tem Wallet: Cada Usuario tem uma Carteira Virtual.
+
+Transacao envolve Wallet: Cada Transacao está relacionada a uma Wallet e pode registrar apostas, compras de créditos ou saques.
